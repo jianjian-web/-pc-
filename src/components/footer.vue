@@ -1,14 +1,13 @@
 <template>
-  <div class="layout">
-    <w-header></w-header>
-    <w-nav></w-nav>
+  <div>
+    footer
   </div>
 </template>
 
 <script>
   import { mapState } from "vuex"
   export default {
-    name: 'layout',
+    name: 'search',
     data () {
       return {
 
@@ -18,13 +17,14 @@
       ...mapState([
 
       ])
+    },
+    methods:{
+
     }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
-  .layout {
-    height: 100%;
-  }
+
 </style>
