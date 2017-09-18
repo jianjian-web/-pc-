@@ -1,8 +1,7 @@
-# 我常用的vue模板
+# vue+elementUI+electron的网易云pc版
 
-> 每次拉完vue-cli都要对router和vuex等做一些配置，所以我把配置好的模板保存，以后建项目方便使用
+> 网易云pc版仿写
 
-## Build Setup
 
 ``` bash
 # install dependencies
