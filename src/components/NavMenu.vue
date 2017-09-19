@@ -1,8 +1,8 @@
 <template>
   <div class="w-body">
-    <div class="NavMenu" :class="{isclone:isToggle}">
+    <div class="NavMenu" :class="{isclose:isToggle}">
       <div class="list-menu el-icon-wangyi-mulu2" @click="handleToggle"></div>
-      <ul class="nav-list">
+      <ul class="nav-list" @click="handleRouter">
         <li>
           <i class="el-icon-wangyi-sousuo"></i>
           <span>搜索</span>
@@ -31,7 +31,7 @@
           <span>下载管理</span>
         </li>
         <li>
-          <i class="el-icon-wangyi-zuijinbofang"></i>
+          <i class="el-icon-wangyi-clock"></i>
           <span>最近播放</span>
         </li>
         <li>
@@ -76,19 +76,25 @@
           <span>我的收藏</span>
         </li>
       </ul>
+      <div class="el-icon-wangyi-shouqi2 list-open" @click="handleToggle"></div>
     </div>
     <!--========== 创建歌单dialog =========-->
-    <el-dialog title="新建歌单" :visible="dialogVisible" size="tiny">
+    <el-dialog title="新建歌单" :visible="dialogVisible" size="tiny" :before-close="handleClose" top="30%">
       <el-input type="textarea" :rows="2" placeholder="歌单标题" v-model="songSheetName"></el-input>
+      <el-checkbox v-model="privacySongSheet" class="privacy">设置为隐私歌单</el-checkbox>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" class="creatButton" @click="handleNewCreat">新建</el-button>
         <el-button class="reset">取消</el-button>
       </span>
     </el-dialog>
 
-    <div class="main">
-      2313123123 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eaque a deserunt repellat quibusdam expedita sequi at. Earum rem nisi, perspiciatis porro aspernatur aperiam fuga nobis laudantium ipsa! Quis, quas.
-    </div>
+    <!-- <div class="main">
+          2313123123 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Dolorem eaque a deserunt repellat quibusdam expedita sequi at. Earum
+           rem nisi, perspiciatis porro aspernatur aperiam fuga nobis laudantium
+           ipsa! Quis, quas.
+        </div> -->
+
   </div>
 </template>
 
@@ -98,8 +104,9 @@
     data () {
       return {
         isToggle: false,
-        dialogVisible: true,
-        songSheetName:''
+        dialogVisible: false,
+        songSheetName: '',
+        privacySongSheet: false
       }
     },
     methods: {
@@ -107,10 +114,30 @@
         this.isToggle = !this.isToggle;
       },
       handleCreateSongSheet () {
-        this.dialogVisible=true;
+        this.dialogVisible = true;
       },
       handleNewCreat () {
-        this.dialogVisible=!this.dialogVisible;
+        this.dialogVisible = !this.dialogVisible;
+      },
+      handleClose () {
+        this.dialogVisible = !this.dialogVisible;
+      },
+      handleRouter (e) {/*??????????????????????*/
+        var title = e.target.textContent;
+          // debugger
+        if(title==="发现音乐"){
+          this.$router.push({path:"/fined"})
+          console.log(title)
+        }
+        // console.dir(title)
+        // setTimeout(function () {
+          // switch (title) {
+          //   case "发现音乐":
+          // console.log("tt"+title)
+          //     break;
+          // }
+        // },0);
+
       }
     }
   }
@@ -118,16 +145,18 @@
 
 <style scoped lang="less">
   .NavMenu {
-    float: left;
-    border: 1px solid red;
+    float: left; // border: 1px solid red;
     width: 200px;
     height: 100%;
-    overflow-y: scroll;
+    overflow: auto;
     background: #F3F3F5;
     .list-menu {
       height: 50px;
       line-height: 50px;
       padding-left: 10px;
+    }
+    .list-open {
+      display: none;
     }
     .nav-list {
       li {
@@ -155,18 +184,14 @@
     }
   }
 
-  .main {
-    border: 1px solid blue;
-    overflow: hidden;
-    height: 100%;
-  }
-
   .w-body {
     height: calc(~"100% - 40px - 75px");
+    float: left;
   }
 
-  .isclone {
-    width: 45px;
+  .isclose {
+    /*用于控制折叠效果*/
+    width: 40px;
     .nav-list {
       li {
         span {
@@ -174,11 +199,29 @@
         }
       }
     }
+    .nav-list:nth-child(3),
+    .nav-list:nth-child(4) {
+      display: none;
+    }
+    .list-open {
+      display: block;
+      padding: 15px 10px;
+      color: #666;
+      &:hover {
+        background: #E8E8EB;
+        cursor: pointer;
+      }
+    }
   }
 
   .creatSongSheet {
     float: right;
     font-size: 20px;
+  }
+
+  .privacy {
+    margin-top: 20px;
+    color: #999;
   }
 
   .dialog-footer {

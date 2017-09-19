@@ -12,8 +12,11 @@ import './assets/iconfont/iconfont.css'
 Vue.use(ElementUI)
 // Vue.use(Mint);
 Vue.config.productionTip = false
-Vue.component("w-header",require("./components/Header.vue").default)
-Vue.component("w-nav",require("./components/NavMenu.vue").default)
+Vue.component("wLayout",require("./components/Layout.vue").default)
+Vue.component("wHeader",require("./components/Header.vue").default)
+Vue.component("wNav",require("./components/NavMenu.vue").default)
+Vue.component("wMain",require("./components/Main.vue").default)
+Vue.component("wFindMusic",require("./components/FindMusic.vue").default)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

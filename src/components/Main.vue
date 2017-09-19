@@ -1,15 +1,13 @@
 <template>
-  <div class="layout">
-    <w-header></w-header>
-    <w-nav></w-nav>
-    <w-main></w-main>
+  <div class="main">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
   import { mapState } from "vuex"
   export default {
-    name: 'layout',
+    name: 'main',
     data () {
       return {
 
@@ -19,13 +17,19 @@
       ...mapState([
 
       ])
+    },
+    methods:{
+
     }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped lang="less">
-  .layout {
-    height: 100%;
+.main {
+    // border: 1px solid blue;
+    overflow: hidden;
+    height: calc(~"100% - 40px - 75px");
+    padding:15px;
   }
 </style>
