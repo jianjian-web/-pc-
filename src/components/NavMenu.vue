@@ -20,7 +20,7 @@
           <span>朋友</span>
         </li>
       </ul>
-      <ul class="nav-list">
+      <ul class="nav-list" @click="handleRouter">
         <div class="title">我的音乐</div>
         <li>
           <i class="el-icon-wangyi-bendiyinle"></i>
@@ -89,16 +89,17 @@
     </el-dialog>
 
     <!-- <div class="main">
-          2313123123 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Dolorem eaque a deserunt repellat quibusdam expedita sequi at. Earum
-           rem nisi, perspiciatis porro aspernatur aperiam fuga nobis laudantium
-           ipsa! Quis, quas.
-        </div> -->
+              2313123123 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Dolorem eaque a deserunt repellat quibusdam expedita sequi at. Earum
+               rem nisi, perspiciatis porro aspernatur aperiam fuga nobis laudantium
+               ipsa! Quis, quas.
+            </div> -->
 
   </div>
 </template>
 
 <script>
+import {mapState,mapMutations} from "vuex"
   export default {
     name: 'nav',
     data () {
@@ -122,23 +123,31 @@
       handleClose () {
         this.dialogVisible = !this.dialogVisible;
       },
-      handleRouter (e) {/*??????????????????????*/
-        var title = e.target.textContent;
-          // debugger
-        if(title==="发现音乐"){
-          this.$router.push({path:"/fined"})
-          console.log(title)
+      handleRouter (e) {
+        var title = e.target.textContent.trim();
+        if (!title) {//说明点了图标
+          title = e.target.parentNode.textContent.trim();
         }
-        // console.dir(title)
-        // setTimeout(function () {
-          // switch (title) {
-          //   case "发现音乐":
-          // console.log("tt"+title)
-          //     break;
-          // }
-        // },0);
+        this.SET_TITLE(title);
+        switch (title) {//路由控制
+          case "发现音乐":
+            this.$router.push({ path: "/" });
+            break;
+          case "搜索":
+            this.$router.push({ path: "/search" });
+            break;
+          case "MV":
+            this.$router.push({ path: "/mv" });
+            break;
+          case "朋友":
+            this.$router.push({ path: "/friend" });
+            break;
+        }
 
-      }
+      },
+      ...mapMutations([
+        'SET_TITLE'
+      ])
     }
   }
 </script>

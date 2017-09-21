@@ -1,22 +1,19 @@
 <template>
   <div>
-    footer
+     friend
   </div>
 </template>
 
 <script>
-  import { mapState } from "vuex"
   export default {
-    name: 'footer',
+    name: 'Friend',
     data () {
       return {
 
       }
     },
     computed: {
-      ...mapState([
 
-      ])
     },
     methods:{
 

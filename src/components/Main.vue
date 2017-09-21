@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <router-view></router-view>
+    <!-- <keep-alive> -->
+      <router-view></router-view>
+    <!-- </keep-alive> -->
   </div>
 </template>
 
@@ -18,7 +20,7 @@
 
       ])
     },
-    methods:{
+    methods: {
 
     }
   }
@@ -26,10 +28,10 @@
 
 
 <style scoped lang="less">
-.main {
+  .main {
     // border: 1px solid blue;
     overflow: hidden;
     height: calc(~"100% - 40px - 75px");
-    padding:15px;
+    padding: 15px 20px;
   }
 </style>

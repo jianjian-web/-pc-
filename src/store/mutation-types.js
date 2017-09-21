@@ -1,1 +1,1 @@
-// export const RECORD_MENU_DATA = 'RECORD_MENU_DATA'
+export const SET_TITLE = 'SET_TITLE'

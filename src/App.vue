@@ -10,7 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@base-color: #BC2F2E;
 body{
   margin:0;
 }
@@ -28,6 +29,10 @@ html,body{
   -moz-osx-font-smoothing: grayscale;
   color: #333;
   height:100%;
+}
+a{
+  text-decoration: none;
+  color:#333;
 }
 *{
   box-sizing:border-box;

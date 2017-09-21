@@ -1,22 +1,19 @@
 <template>
   <div>
-    footer
+     <w-title></w-title>
   </div>
 </template>
 
 <script>
-  import { mapState } from "vuex"
   export default {
-    name: 'footer',
+    name: 'search',
     data () {
       return {
 
       }
     },
     computed: {
-      ...mapState([
 
-      ])
     },
     methods:{
 
@@ -25,6 +22,6 @@
 </script>
 
 
-<style scoped>
+<style scoped lang="less">
 
 </style>

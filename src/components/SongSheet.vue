@@ -1,22 +1,19 @@
 <template>
   <div>
-    footer
+    songsheet
   </div>
 </template>
 
 <script>
-  import { mapState } from "vuex"
   export default {
-    name: 'footer',
+    name: 'Recommend',
     data () {
       return {
 
       }
     },
     computed: {
-      ...mapState([
 
-      ])
     },
     methods:{
 
