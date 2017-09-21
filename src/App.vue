@@ -30,9 +30,18 @@ html,body{
   color: #333;
   height:100%;
 }
+p{
+margin:0;
+}
 a{
   text-decoration: none;
   color:#333;
+}
+.lf{
+  float: left;
+}
+.rt{
+  float: right;
 }
 *{
   box-sizing:border-box;

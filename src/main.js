@@ -23,6 +23,7 @@ Vue.component("wFindMusic", require("./components/FindMusic.vue").default);
 Vue.component("wTitle", require("./components/common/MainTitle.vue").default);
 Vue.component("wTag", require("./components/common/TagToggle.vue").default);
 Vue.component("wSongSheet", require("./components/SongSheet.vue").default);
+Vue.component("wMvTitle", require("./components/common/MvTitle.vue").default);
 
 /*请求拦截器*/
 Vue.http.interceptors.push(function(request, next) {
