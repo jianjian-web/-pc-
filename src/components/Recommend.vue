@@ -33,8 +33,10 @@
     <w-mvTitle title="推荐歌单" icon="el-icon-wangyi-rili" path="/"></w-mvTitle>
     <ul class="recommendSong">
       <li v-for="(value,index) in personalized" :key="index">
+        <a href="#">
         <img :src="value.picUrl">
         <p>{{value.name}}</p>
+        </a>
       </li>
     </ul>
     <p style="height:1000px;"></p>
@@ -131,6 +133,7 @@
         line-height: 10px;
         position: relative;
         left: -35px;
+        line-height: 22px;
         p:nth-child(1) {
           font-weight: bold;
         }
@@ -140,13 +143,18 @@
       }
     }
     .recommendSong {
-      margin: 10px -10px; // border:1px solid red;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       li {
+        flex:0 1 30%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         float: left;
         margin: 10px;
-        margin-bottom:30px;
         width: 184px;
-        height: 200px; // border:1px solid red;
+        height: 220px; 
         cursor: pointer;
         transition: all 0.35s ease-out;
         &:hover{

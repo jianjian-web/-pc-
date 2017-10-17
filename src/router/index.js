@@ -15,7 +15,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/findMusic'
+      redirect: '/findMusic/recommend'
     },
     {
       path: '/findMusic',

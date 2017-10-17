@@ -28,9 +28,6 @@
     },
     methods: {
 
-    },
-    beforeCreate () {
-      this.$router.push({ path: '/findMusic/recommend' })
     }
   }
 </script>
